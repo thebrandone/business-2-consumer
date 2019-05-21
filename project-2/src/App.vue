@@ -11,8 +11,11 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="#">Customer</b-nav-item> 
-        <b-nav-item href="#">|  Vendor</b-nav-item>
+        <router-link to="/">Home</router-link> |
+        <router-link to="/vendor">Vendor</router-link> |
+        <router-link to="/customer">Customer</router-link>
+        <router-link hidden to="/newvendor">New Vendor</router-link>
+        <router-link hidden to="/newcustomer">New Customer</router-link>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
