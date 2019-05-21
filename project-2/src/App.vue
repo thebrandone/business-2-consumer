@@ -4,7 +4,7 @@
   <div>
   <b-navbar id="mainNav" toggleable="lg" type="light" >
     <b-navbar-brand href="#">
-      <img src="https://i.ibb.co/nLNL8R4/B2C.png"  height=100 width=100 class="d-inline-block align-top" alt="Kitten">
+      <img src="./assets/B2C.png"  height=100 width=100 class="d-inline-block align-top" alt="Kitten">
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
