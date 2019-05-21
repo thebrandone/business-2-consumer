@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.6",
     "vue": "^2.6.10",
+    "vue-browser-geolocation": "^1.8.0",
     "vue-router": "^3.0.3"
   },
   "devDependencies": {
