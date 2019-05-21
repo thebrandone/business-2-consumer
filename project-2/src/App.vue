@@ -21,12 +21,6 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
 
-        <b-nav-item-dropdown right>
-          <!-- Using 'button-content' slot -->
-          <template slot="button-content"><em>User</em></template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -47,18 +41,20 @@
 #nav-collapse{
   font-size: 60px;
 }
-#nav {
+#nav-collapse {
   padding: 30px;
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #FFFFFF;
+    text-decoration: none;
     &.router-link-exact-active {
-      color: #42b983;
+      color: #000000;
     }
   }
 }
 #mainNav{
-  background-color:rgb(217,68,50);
+  background-color:rgb(255,0,0);
 }
+
 
 </style>
