@@ -1,5 +1,6 @@
 <template>
   <div class="newcustomer">
+      <form @submit.prevent="saveCustomerInfo">
     <h1>Please Enter in your information</h1>
     <p>
       <label for="username-input">
@@ -59,5 +60,29 @@
     <div>
       <button type="submit">Enter information</button>
     </div>
+    </form>
   </div>
 </template>
+<script>
+import {Customer as customer} from "../../models/customer";
+
+export default {
+    name: 'newcustomer',
+
+    data: function() {
+        return {
+            username: '',
+            password:'',
+            email: '',
+           firstName: '',
+            lastName: ''
+        }
+    },
+    methods:{
+        saveCustomerInfo : function (){
+            console.log(this.username)
+        }
+    }
+    
+}
+</script>
