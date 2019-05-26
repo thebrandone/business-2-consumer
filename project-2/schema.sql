@@ -16,7 +16,7 @@ CREATE TABLE customer
     customer_first VARCHAR(100) not NULL,
     customer_last VARCHAR(100) not null,
     email VARCHAR(100) not NULL,
-    restaurant VARCHAR(100) not NULL,
+    restaurant int (1000),
     primary key (id)
 );
 
