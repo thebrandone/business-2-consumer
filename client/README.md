@@ -1,4 +1,4 @@
-# project-2
+# 01-hello-vue
 
 ## Project setup
 ```

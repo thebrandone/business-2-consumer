@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import { Customer as customer } from "../../models/customer";
+// import { Customer as customer } from "../../models/customer";
 import axios from "axios";
 
 export default {
