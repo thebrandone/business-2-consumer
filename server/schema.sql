@@ -11,18 +11,18 @@ USE b2c;
 CREATE TABLE customer
 (
     user_name VARCHAR(100) not NULL,
-    id INT(1000) not null,
+    id INT(100) not null,
     customer_password varchar(100) not null,
     customer_first VARCHAR(100) not NULL,
     customer_last VARCHAR(100) not null,
     email VARCHAR(100) not NULL,
-    restaurant VARCHAR(100) not NULL,
+    restaurant int (100),
     primary key (id)
 );
 
 CREATE TABLE vendor
 (   
-    id INT(1000) not null,
+    id INT(100) not null,
     vendor_name VARCHAR(100) not null,
     vendor_password VARCHAR(100) not null,
     email VARCHAR(100) not null,

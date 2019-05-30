@@ -43,13 +43,13 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         restaurant: {
-
+          type: DataTypes.STRING
         },
         visits: {
-
+          type: DataTypes.STRING,
         },
         review: {
-            
+          type: DataTypes.STRING,
         }
     });
     return Customer;
