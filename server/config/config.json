@@ -1,7 +1,15 @@
-{
+
+{ 
+  "local": {
+    "username": "root",
+    "password": "baseBall#25",
+    "database": "b2c_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
   "development": {
     "username": "root",
-    "password": "admin",
+    "password": "baseBall#25",
     "database": "b2c_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
