@@ -1,23 +1,28 @@
-var express = require("express");
+const express = require("express");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
-
+// bring in the models
 var db = require("./models");
 
+const PORT = process.env.PORT || 3000;
+
+const app = express();
+
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/dist"));
+}
+
+// Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Static directory
-app.use(express.static("public"));
+var customerRoutes = require("./controllers/Customer_controller.js");
+var vendorRoutes = require("./controllers/Vendor_controller")
 
-// Routes
-// var routes = require("./project-2/controllers/customerSQL.js")(app);
+app.use(customerRoutes,vendorRoutes);
 
-// app.use(routes);
-// Syncing our sequelize models and then starting our Express app
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log(`🌎 ==> API server now on port ${PORT}!`);
   });
 });
