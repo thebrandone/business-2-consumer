@@ -2,7 +2,7 @@
   <div>
       
 
-    <div v-for="vendor in vendors" v-bind:key="vendor.id">
+    <div v-for="customer in customers" v-bind:key="customer.id">
 
       <div id="listView">
         <b-jumbotron>
