@@ -65,10 +65,12 @@
         <button type="submit">Register</button>
       </div>
     </form>
+    <button @click="nextPage">ok</button>
   </div>
 </template>
 <script>
 import axios from "axios";
+import router from '../router';
 
 export default {
   name: "newvendor",
@@ -118,8 +120,16 @@ export default {
         })
         .then(function(data) {
           console.log("got it");
+          console.log(this.$router)
+          // this.$router.push({name: "vendor"});
+          // this.nextPage();
         })
         .bind(this);
+        this.nextPage();
+    },
+    nextPage: function() {
+      console.log(this.$router)
+      this.$router.push({name: "vendor"});
     }
   }
 };
