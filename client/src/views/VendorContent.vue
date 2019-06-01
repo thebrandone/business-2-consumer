@@ -1,46 +1,62 @@
 <template>
-<div>
+  <div>
+      
+
     <div v-for="vendor in vendors" v-bind:key="vendor.id">
-        <pre>
-            {{vendor.id}}
-            {{vendor.username}}
-            {{vendor.password}}
-            {{vendor.email}}
-            {{vendor.restaurant}}
+
+      <div id="listView">
+        <b-jumbotron>
+            <h1>{{vendor.restaurant}}</h1>
+            <h3>
+            <bold>
+            {{vendor.id}}<br>
+            {{vendor.username}}<br>
+            {{vendor.password}}<br>
+            {{vendor.email}}<br>
             {{vendor.city}}
-        </pre>
+            </bold></h3>
+        </b-jumbotron>
+        <br><br>
+      </div>
+
     </div>
-</div>
-    
+
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-    name: 'vendorcontent',
+  name: "vendorcontent",
 
-    data: function() {
-        return {
-            vendors: []
-        }
-    },
+  data: function() {
+    return {
+      vendors: []
+    };
+  },
 
-    created: function() {
-        this.fetchVendors();
-    },
+  created: function() {
+    this.fetchVendors();
+  },
 
-    methods: {
-        fetchVendors: function() {
-            axios.get('/api/vendors').then(
-                function(vendors) {
-                    this.vendors = vendors.data;
-                }.bind(this)
-            );
-        }
+  methods: {
+    fetchVendors: function() {
+      axios.get("/api/vendors").then(
+        function(vendors) {
+          this.vendors = vendors.data;
+        }.bind(this)
+      );
     }
-}
+  }
+};
 </script>
 
 <style>
+#listView{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50px;
+
+}
 
 </style>
