@@ -4,36 +4,36 @@
       <h1>Please Enter in your information</h1>
       <p>
         <label for="username-input">
-          <span>Username:</span>
-          <input v-model="username" type="text" id="username-input" name="username-input">
+          
+          <input v-model="username" type="text" id="username-input" name="username-input" placeholder="username">
         </label>
       </p>
       <p>
         <label for="password-input">
-          <span>Password:</span>
-          <input v-model="password" type="text" id="password-input" name="password-input">
+          
+          <input v-model="password" type="text" id="password-input" name="password-input" placeholder="password">
         </label>
       </p>
       <p>
         <label for="email-input">
-          <span>Email:</span>
-          <input v-model="email" type="text" id="email-input" name="email-input">
+          
+          <input v-model="email" type="text" id="email-input" name="email-input" placeholder="email">
         </label>
       </p>
       <p>
         <label for="restaurant-input">
-          <span>Restaurant:</span>
-          <input v-model="restaurant" type="text" id="restaurant-input" name="restaurant-input">
+          
+          <input v-model="restaurant" type="text" id="restaurant-input" name="restaurant-input" placeholder="restaurant">
         </label>
       </p>
       <p>
         <label for="city-input">
-          <span>City:</span>
-          <input v-model="city" type="text" id="city-input" name="city-input">
+          
+          <input v-model="city" type="text" id="city-input" name="city-input" placeholder="city">
         </label>
       </p>
       <div>
-        <button type="submit">Enter information</button>
+        <button type="submit">Register</button>
       </div>
     </form>
   </div>
