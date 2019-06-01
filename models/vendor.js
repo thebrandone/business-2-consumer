@@ -5,14 +5,15 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
               len: [1, 160]
-            }
+            },
+            primaryKey: true
         },
         password:{
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
               len: [1, 160]
-            }
+            }           
         },
         email: {
             type: DataTypes.STRING,

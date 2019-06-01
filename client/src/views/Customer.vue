@@ -1,8 +1,5 @@
 <template>
   <div class="customer">
-    
-    
-    
     <div class="login">
     <h1>Please login to your Customer account</h1>
     <p>
