@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "admin",
+    "password": "baseBall#25",
     "database": "b2c_db",
     "host": "localhost",
     "dialect": "mysql"
