@@ -7,11 +7,19 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10",
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-service": "^3.7.0",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.0.0-rc.21",
+    "core-js": "^2.6.5",
+    "fs": "0.0.1-security",
+    "jquery": "^3.4.1",
+    "path": "^0.12.7",
+    "sequelize": "^5.8.7",
+    "vue": "^2.6.10",
+    "vue-browser-geolocation": "^1.8.0",
+    "vue-router": "^3.0.6",
     "vue-template-compiler": "^2.5.21"
   }
 }

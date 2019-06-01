@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Customer = sequelize.define("Customer", {
+    var Vendor = sequelize.define("Vendor", {
         username: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -21,37 +21,21 @@ module.exports = function(sequelize, DataTypes) {
               len: [1, 160]
             }
         },
-        city: {
+        
+        restaurant:{
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
               len: [1, 160]
             }
         },
-        firstName:{
+        city:{
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
               len: [1, 160]
             }
-        },
-        lastName:{
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-              len: [1, 160]
-            }
-        },
-        restaurant: {
-          type: DataTypes.STRING
-        },
-        visits: {
-          type: DataTypes.STRING,
-        },
-        review: {
-          type: DataTypes.STRING,
         }
     });
-    return Customer;
+    return Vendor;
   };
-  
