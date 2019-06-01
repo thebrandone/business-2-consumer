@@ -1,50 +1,70 @@
 <template>
   <div class="newcustomer">
-    <form @submit.prevent="saveCustomerInfo">
-      <b-alert
-        v-model="showGoodAlert"
-        variant="success"
-        dismissible
-      >Your information has been submitted</b-alert>
-      <b-alert
-        v-model="showBadAlert"
-        variant="danger"
-        dismissible
-      >Im sorry that username is already in use</b-alert>
-      <h1>Please Enter in your information</h1>
-      <p>
-        <label for="username-input">
-          <span>Username:</span>
-          <input v-model="username" type="text" id="username-input" name="username-input">
-        </label>
-      </p>
-      <p>
-        <label for="password-input">
-          <span>Password:</span>
-          <input v-model="password" type="text" id="password-input" name="password-input">
-        </label>
-      </p>
-      <p>
-        <label for="email-input">
-          <span>Email:</span>
-          <input v-model="email" type="text" id="email-input" name="email-input">
-        </label>
-      </p>
-      <p>
-        <label for="firstName-input">
-          <span>First Name:</span>
-          <input v-model="firstName" type="text" id="firstName-input" name="firstName-input">
-        </label>
-      </p>
-      <p>
-        <label for="lastName-input">
-          <span>Last Name:</span>
-          <input v-model="lastName" type="text" id="lastName-input" name="lastName-input">
-        </label>
-      </p>
-      <div>
-        <button type="submit">Enter information</button>
-      </div>
+      <form @submit.prevent="saveCustomerInfo">
+    <h1>Please Enter in your information</h1>
+    <p>
+      <label for="username-input">
+        
+        <input
+          v-model="username"
+          type="text"
+          id="username-input"
+          name="username-input"
+          placeholder="username"
+        >
+      </label>
+    </p>
+    <p>
+      <label for="password-input">
+       
+        <input
+          v-model="password"
+          type="text"
+          id="password-input"
+          name="password-input"
+          placeholder="password"
+        >
+      </label>
+    </p>
+    <p>
+      <label for="email-input">
+        
+        <input
+          v-model="email"
+          type="text"
+          id="email-input"
+          name="email-input"
+          placeholder="email"
+        >
+      </label>
+    </p>
+    <p>
+      <label for="firstName-input">
+        
+        <input
+          v-model="firstName"
+          type="text"
+          id="firstName-input"
+          name="firstName-input"
+          placeholder="First Name"
+        >
+      </label>
+    </p>
+    <p>
+      <label for="lastName-input">
+        
+        <input
+          v-model="lastName"
+          type="text"
+          id="lastName-input"
+          name="lastName-input"
+          placeholder="Last Name"
+        >
+      </label>
+    </p>
+    <div>
+      <button type="submit">Register</button>
+    </div>
     </form>
   </div>
 </template>
