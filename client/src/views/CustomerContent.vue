@@ -3,7 +3,7 @@
     <div id="userProfile">
       <b-jumbotron id="jumboProfile" class="row">
         <div class="col-sm">
-          <h1>Username Placeholder{{currentCustomer}}</h1>
+          <h1>Username Placeholder</h1>
           <h3>
             Total Check-Ins: {{totalCheckins}}
             <br>
@@ -17,9 +17,11 @@
       </b-jumbotron>
     </div>
 
+    <form @submit.prevent="checkin">
     <div id="userCheckin">
       <checkIn/>
     </div>
+    </form>
 
     <div id="userHistory">
       <h1>Most Recent Check-Ins</h1>
@@ -50,7 +52,6 @@ export default {
   data: function() {
     return {
       customers: [],
-      currentCustomer,
       checkins:[]
     };
   },
@@ -68,15 +69,6 @@ export default {
         }.bind(this)
       );
     },
-
-    checkin: function(){
-      axios.post("api/checkins").then(
-        function(checkins){
-          this.checkins = checkins.data;
-          console.log("Checkin Customer Vue");
-        }.bind(this)
-      );
-    }
   }
 };
 </script>
