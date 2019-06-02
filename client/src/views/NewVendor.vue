@@ -65,10 +65,12 @@
         <button type="submit">Register</button>
       </div>
     </form>
+    <button @click="nextPage">ok</button>
   </div>
 </template>
 <script>
 import axios from "axios";
+
 import router from "../router";
 
 export default {
@@ -123,6 +125,7 @@ export default {
     },
     navigation() {
       router.push("/vendor");
+
     }
   }
 };

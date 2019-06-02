@@ -1,5 +1,8 @@
 <template>
   <div class="customer">
+    
+    <img src="@/assets/customerTop.png" width=100%>
+    
     <div class="login">
     <h1>Please login to your Customer account</h1>
     <p>
@@ -27,9 +30,9 @@
       </label>
     </p>
     <button type="submit">Login</button>
-    <a href="/#/newcustomer">New Customer</a>
+    <a href="/#/newcustomer">  New Customer</a>
     </div>
-
+    <img src="@/assets/customerBottom.png" width=100%>
   </div>
 </template>
 
@@ -48,11 +51,20 @@ export default {
 
 <style>
 .CustomerContent{
-
-  
   width: 80%;
-
 }
+
+.login{
+  border-width: 5px;
+  border-color: black;
+  border-style: solid;
+  padding: 5px;
+  
+}
+.login a:hover{
+  color: red;
+}
+
 </style>
 
 
