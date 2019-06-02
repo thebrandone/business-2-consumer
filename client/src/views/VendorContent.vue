@@ -39,6 +39,7 @@ export default {
   created: function() {
     this.fetchVendors();
     this.fetchCustomers();
+    console.log(window.vendorUsername, window.vendorPassword);
   },
 
   methods: {
