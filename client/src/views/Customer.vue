@@ -63,24 +63,25 @@ export default {
      validateCustomers: function() {
       axios.get("/api/customers/").then(
         function(customers) {
-          this.showBadAlert = true;
+          this.showGoodAlert = false;
+          this.showBadAlert = false;
           for (
             var checkUsername = 0;
             checkUsername < customers.data.length;
             checkUsername++
           ) {
             if (this.username === customers.data[checkUsername].username && this.password === customers.data[checkUsername].password) {
-              this.saveInfo();
-              this.moveCustomerPage();
+              this.showGoodAlert = true;
             } else {
-              this.throwLoginError();
+              this.showBadAlert = true;
             }
+          }
+          if (this.showGoodAlert) {
+            this.saveInfo();
+            this.moveCustomerPage();
           }
         }.bind(this)
       );
-    },
-     throwLoginError: function() {
-      this.showBadAlert = true
     },
     moveCustomerPage: function() {
       router.push(('/CustomerContent'))
