@@ -31,21 +31,35 @@ export default {
 
   data: function() {
     return {
-      vendors: []
+      vendors: [],
+      customers: []
     };
   },
 
   created: function() {
     this.fetchVendors();
+    this.fetchCustomers();
   },
 
   methods: {
     fetchVendors: function() {
       axios.get("/api/vendors").then(
         function(vendors) {
+
           this.vendors = vendors.data;
+
         }.bind(this)
       );
+    },
+
+    fetchCustomers: function(){
+        axios.get("/api/customers").then(
+          function(customers) {
+
+            this.customers=customers.data;
+            
+          }.bind(this)
+        )
     }
   }
 };

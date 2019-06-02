@@ -17,19 +17,61 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "checkIn",
   data() {
     return {
       selected: null,
       options: [
-        { value: "Bojangles", text: "Bojangles" },
-        { value: "Panera Bread", text: "Panera Bread" },
-        { value: "Pizza Hut", text: "Pizza Hut" }
-      ]
+        
+      ],
+      vendors: []
     };
+  },
+
+  created: function() {
+    this.fetchVendors();
+  
+
+  },
+
+  methods: {
+    fetchVendors: function() {
+      axios.get("/api/vendors").then(
+        function(vendors) {
+          this.vendors = vendors.data;
+          console.log(vendors);
+          this.populateVendors();
+        }.bind(this)
+      );
+    },
+
+    populateVendors: function(){
+
+      for(var i=0; i<this.vendors.length; i++){
+        
+        this.options.push(this.vendors[i].restaurant);
+
+        console.log(this.vendors[i].restaurant);
+      }
+
+    },
+
+    checkin: function() {
+      axios.post("/api/checkins", {
+          customer: this.customer,
+          vendor: this.vendor,
+        })
+        .then(function(data) {
+          console.log("got it");
+        })
+    },
   }
 };
+
+
 </script>
 
 <style>

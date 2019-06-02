@@ -50,7 +50,8 @@ export default {
   data: function() {
     return {
       customers: [],
-      currentCustomer
+      currentCustomer,
+      checkins:[]
     };
   },
 
@@ -63,6 +64,14 @@ export default {
       axios.get("/api/customers").then(
         function(customers) {
           this.customers = customers.data;
+        }.bind(this)
+      );
+    },
+
+    checkin: function(){
+      axios.post("api/checkins").then(
+        function(checkins){
+          this.checkins = checkins.data;
         }.bind(this)
       );
     }

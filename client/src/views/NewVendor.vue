@@ -65,7 +65,6 @@
         <button type="submit">Register</button>
       </div>
     </form>
-    <button @click="nextPage">ok</button>
   </div>
 </template>
 <script>
