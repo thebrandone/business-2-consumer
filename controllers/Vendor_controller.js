@@ -14,6 +14,16 @@ router.get("/api/vendors", function(req, res) {
     });
 });
 
+router.get("/api/vendors", function(req, res) {
+  db.Vendor.findAll({
+    where: {
+      restaurant: window.vendorUsername
+    }
+  }).then(function(vendorData) {
+    res.json(vendorData);
+  });
+});
+
 // post route to create burgers
 router.post("/api/vendors", function(req, res) {
   // edited burger create to add in a burger_name
