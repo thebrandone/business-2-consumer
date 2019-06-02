@@ -57,6 +57,7 @@ export default {
 
   created: function() {
     this.fetchCustomers();
+    console.log(window.customerUsername, window.customerPassword);
   },
 
   methods: {

@@ -55,7 +55,8 @@ export default {
   data: function() {
     return {
       username: '',
-      password: ''
+      password: '',
+      loading: false
     };
   },
   methods: {
@@ -76,6 +77,7 @@ export default {
             }
           }
           if (this.showGoodAlert) {
+            this.saveInfo();
             this.moveCustomerPage();
           }
         }.bind(this)
@@ -83,6 +85,11 @@ export default {
     },
     moveCustomerPage: function() {
       router.push(('/CustomerContent'))
+    },
+      saveInfo: function() {
+        console.log(this.username, this.password);
+        window.customerUsername = this.username;
+        window.customerPassword = this.password;
     }
   }
 };
