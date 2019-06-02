@@ -73,6 +73,7 @@ export default {
       axios.post("api/checkins").then(
         function(checkins){
           this.checkins = checkins.data;
+          console.log("Checkin Customer Vue");
         }.bind(this)
       );
     }
