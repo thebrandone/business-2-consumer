@@ -42,7 +42,7 @@ export default {
       axios.get("/api/vendors").then(
         function(vendors) {
           this.vendors = vendors.data;
-          console.log(vendors);
+          
           this.populateVendors();
         }.bind(this)
       );
@@ -53,19 +53,17 @@ export default {
       for(var i=0; i<this.vendors.length; i++){
         
         this.options.push(this.vendors[i].restaurant);
-
-        console.log(this.vendors[i].restaurant);
       }
 
     },
 
     checkin: function() {
       axios.post("/api/checkins", {
-          customer: this.customer,
-          vendor: this.vendor,
+          // customer: this.customer,
+          // vendor: this.vendor,
         })
         .then(function(data) {
-          console.log("got it");
+          console.log("Checkin Vue Checkin");
         })
     },
   }
