@@ -42,6 +42,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+
+}
+
+html{
+    background-color: rgb(255,0,0);
 }
 #nav-collapse {
   font-size: 60px;
