@@ -1,6 +1,6 @@
 <template>
   <div class="newvendor">
-    <form @submit.prevent="saveVendorInfo">
+    <form @submit.prevent="fetchVendors">
       <b-alert
         v-model="showGoodAlert"
         variant="success"
@@ -70,7 +70,8 @@
 </template>
 <script>
 import axios from "axios";
-import router from '../router';
+
+import router from "../router";
 
 export default {
   name: "newvendor",
@@ -90,26 +91,25 @@ export default {
     fetchVendors: function() {
       axios.get("/api/vendors/").then(
         function(vendors) {
+          this.showGoodAlert = true;
+          this.showBadAlert = false;
           for (
             var checkUsername = 0;
             checkUsername < vendors.data.length;
             checkUsername++
           ) {
-            var validation = false;
             if (this.username === vendors.data[checkUsername].username) {
-              validation = true;
-            }
-            if (validation) {
               this.showBadAlert = true;
-            } else {
-              this.showGoodAlert = true;
+              this.showGoodAlert = false;
             }
+          }
+          if (this.showGoodAlert) {
+            this.saveVendorInfo();
           }
         }.bind(this)
       );
     },
     saveVendorInfo: function() {
-      this.fetchVendors()
       axios
         .post("/api/vendors", {
           username: this.username,
@@ -120,16 +120,12 @@ export default {
         })
         .then(function(data) {
           console.log("got it");
-          console.log(this.$router)
-          // this.$router.push({name: "vendor"});
-          // this.nextPage();
-        })
-        .bind(this);
-        this.nextPage();
+        });
+      this.navigation();
     },
-    nextPage: function() {
-      console.log(this.$router)
-      this.$router.push({name: "vendor"});
+    navigation() {
+      router.push("/vendor");
+
     }
   }
 };

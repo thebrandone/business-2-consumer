@@ -1,6 +1,6 @@
 <template>
   <div class="newcustomer">
-    <form @submit.prevent="saveCustomerInfo">
+    <form @submit.prevent="validateCustomers">
       <b-alert
         v-model="showGoodAlert"
         variant="success"
@@ -75,6 +75,7 @@
 </template>
 <script>
 import axios from "axios";
+import router from "../router";
 
 export default {
   name: "newcustomer",
@@ -91,30 +92,28 @@ export default {
     };
   },
   methods: {
-    fetchCustomers: function() {
+    validateCustomers: function() {
       axios.get("/api/customers/").then(
         function(customers) {
-          console.log(customers.data[0].username);
+          this.showGoodAlert = true;
+          this.showBadAlert = false;
           for (
             var checkUsername = 0;
             checkUsername < customers.data.length;
             checkUsername++
           ) {
-            var validation = false;
             if (this.username === customers.data[checkUsername].username) {
-              validation = true;
-            }
-            if (validation) {
               this.showBadAlert = true;
-            } else {
-              this.showGoodAlert = true;
+              this.showGoodAlert = false;
             }
+          }
+          if (this.showGoodAlert) {
+            this.saveCustomerInfo();
           }
         }.bind(this)
       );
     },
     saveCustomerInfo: function() {
-      this.fetchCustomers();
       axios
         .post("/api/customers", {
           username: this.username,
@@ -126,7 +125,10 @@ export default {
         .then(function(data) {
           console.log("got t");
         })
-        .bind(this);
+        this.navigation();
+    },
+    navigation() {
+      router.push(("/customer"));
     }
   }
 };
