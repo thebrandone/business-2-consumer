@@ -2,7 +2,7 @@
   <div>
       
 
-    <div v-for="customer in customers" v-bind:key="customer.id">
+    <div v-for="vendor in vendors" v-bind:key="vendor.id">
 
       <div id="listView">
         <b-jumbotron>
@@ -56,7 +56,6 @@ export default {
     width: 80%;
     margin-left: 10%;
     margin-top: 50px;
-
 }
 
 </style>
