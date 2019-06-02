@@ -64,25 +64,24 @@ export default {
      validateVendors: function() {
       axios.get("/api/vendors/").then(
         function(vendors) {
-          this.showGoodAlert = false;
-          this.showBadAlert = false;
+          this.showBadAlert = true;
           for (
             var checkUsername = 0;
-            checkUsername < customers.data.length;
+            checkUsername < vendors.data.length;
             checkUsername++
           ) {
             if (this.username === vendors.data[checkUsername].username && this.password === vendors.data[checkUsername].password) {
-              this.showGoodAlert = true;
+              this.saveInfo();
+              this.moveVendorPage();
             } else {
-              this.showBadAlert = true;
+              this.throwLoginError();
             }
-          }
-          if (this.showGoodAlert) {
-            this.saveInfo();
-            this.moveVendorPage();
           }
         }.bind(this)
       );
+    },
+    throwLoginError: function() {
+      this.showBadAlert
     },
     moveVendorPage: function() {
       router.push(('/VendorContent'))
