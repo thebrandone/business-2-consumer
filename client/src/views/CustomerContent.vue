@@ -19,7 +19,7 @@
 
     <form @submit.prevent="checkin">
     <div id="userCheckin">
-      
+      <checkIn/>
     </div>
     </form>
 
