@@ -4,7 +4,7 @@
 
     <br>
     <br>
-    <h1>Bridging the gap between Business and Customer!</h1>
+    <h1>Bridging the gap between Business and Customers!</h1>
     <br>
     <br>
     <br>
