@@ -44,7 +44,7 @@
       <div v-for="checkins in customerCheckins" v-bind:key="checkins.id">
         <div id="listView">
           <b-jumbotron id="userHistory">
-            <h2>Checked-In to {{checkins.vendor}} on {{checkins.createdAt}}</h2>
+            <h2>Checked-In to {{checkins.vendor}} on {{checkins.createdAt.slice(0,10)}}</h2>
           </b-jumbotron>
           <br>
           <br>
@@ -103,7 +103,6 @@ export default {
               this.customerCheckins.push(this.checkins[i]);
               this.totalCheckins++;
               this.recentCheckin = this.checkins[i].vendor;
-              this.customerCheckins[i].createdAt=this.customerCheckins[i].createdAt.slice(0,10);
             }
           }
           console.log(this.customerCheckins.length);
