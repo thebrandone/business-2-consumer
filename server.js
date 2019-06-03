@@ -23,7 +23,7 @@ var checkinRoutes = require("./controllers/Checkins_controller");
 
 app.use(customerRoutes,vendorRoutes,checkinRoutes);
 
-db.sequelize.sync({force:true}).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
   });
