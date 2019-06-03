@@ -4,7 +4,7 @@
       <div id="userProfile">
         <b-jumbotron id="jumboProfile" class="row">
           <div class="col-sm-6">
-            <h1>{{vendorName}}</h1>
+            <h1>{{restaurant}}</h1>
             <h3>
               Total Check-Ins: {{totalCheckins}}
               <br>
@@ -27,7 +27,7 @@
         <div v-for="checkins in customerCheckins" v-bind:key="checkins.id">
           <div id="listView">
             <b-jumbotron id="userHistory">
-              <h2>{{checkins.username}} checked-in on {{checkins.createdAt}}</h2>
+              <h2>{{checkins.username}} checked-in on {{ checkins.createdAt.slice(0,10) }}</h2>
             </b-jumbotron>
             <br>
             <br>
@@ -55,20 +55,31 @@ export default {
       totalCheckins: 0,
       customerCheckins: [],
       vendorName: window.vendorName,
-      recentCheckin:""
+      recentCheckin: "",
+      vendorUsername: window.vendorName,
+      restaurant: "",
+      vendors: []
     };
   },
 
   created: function() {
     this.fetchCustomers();
+    this.fetchVendors();
     this.fetchCheckins();
   },
 
   methods: {
     fetchVendors: function() {
+      console.log(this.vendorUsername);
+
       axios.get("/api/vendors").then(
         function(vendors) {
           this.vendors = vendors.data;
+          for (var i = 0; i < this.vendors.length; i++) {
+            if (this.vendors[i].username === this.vendorUsername) {
+              this.restaurant = this.vendors[i].restaurant;
+            }
+          }
         }.bind(this)
       );
     },
@@ -91,13 +102,15 @@ export default {
           console.log(this.checkins.length);
 
           for (var i = 0; i < this.checkins.length; i++) {
-            if (this.checkins[i].vendor === this.vendorName) {
+            if (this.checkins[i].vendor === this.restaurant) {
               this.customerCheckins.push(this.checkins[i]);
               this.totalCheckins++;
               this.recentCheckin = this.checkins[i].username;
-              this.customerCheckins[i].createdAt=this.customerCheckins[i].createdAt.slice(0, 10);
             }
-          };
+            console.log(this.customerCheckins);
+            //console.log(this.checkins);
+            //console.log(this.checkins[0].createdAt);
+          }
           console.log(this.customerCheckins.length);
         }.bind(this)
       );
