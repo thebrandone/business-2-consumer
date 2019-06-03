@@ -40,6 +40,7 @@
 
 <script>
 import chart from "@/components/chart.vue";
+import vendor from "@/views/Vendor.vue";
 import axios from "axios";
 
 export default {
@@ -87,7 +88,7 @@ export default {
           this.checkins = checkins.data;
           this.totalCheckins = 0;
           this.customerCheckins = [];
-
+          console.log(this.checkins[1].vendor)
           console.log(this.checkins.length);
 
           for (var i = 0; i < this.checkins.length; i++) {
