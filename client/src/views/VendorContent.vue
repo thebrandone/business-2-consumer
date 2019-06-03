@@ -3,6 +3,9 @@
     <div v-for="checkin in checkins" v-bind:key="checkin.id">
       <pre>{{checkin.id}} {{checkin.username}} {{checkin.vendor}}</pre>
     </div>
+    <div>
+      <chart/>
+    </div>
 
     <!-- <div v-for="vendor in vendors" v-bind:key="vendor.id">
 
@@ -74,7 +77,6 @@ export default {
           }.bind(this)
         )
     },
-
       fetchCheckins: function(){
         axios.get("/api/checkins").then(
           function(checkins) {
@@ -83,7 +85,6 @@ export default {
             
           }.bind(this)
         )
-
     }
   }
 };
