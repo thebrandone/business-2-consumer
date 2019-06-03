@@ -3,6 +3,9 @@
     <div v-for="checkin in checkins" v-bind:key="checkin.id">
       <pre>{{checkin.id}} {{checkin.username}} {{checkin.vendor}}</pre>
     </div>
+    <div>
+      <chart/>
+    </div>
 
     <!-- <div v-for="vendor in vendors" v-bind:key="vendor.id">
 
@@ -18,6 +21,9 @@
             {{vendor.city}}
             </bold></h3>
         </b-jumbotron>
+        <div>
+          <chart/>
+        </div>
         <br><br>
       </div>
 
@@ -28,8 +34,13 @@
 
 <script>
 import axios from "axios";
+import chart from '@/components/chart.vue';
+
 export default {
-  name: "vendorcontent",
+  name: 'vendercontent',
+  components: {
+    chart
+  },
 
   data: function() {
     return {
