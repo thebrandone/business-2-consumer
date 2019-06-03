@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Customer = sequelize.define("Checkins", {
+    var Checkins = sequelize.define("Checkins", {
         username: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
               len: [1, 160]
             }
-        }
+        },
     });
-    return Customer;
+    return Checkins;
   };

@@ -54,8 +54,6 @@ export default {
     },
 
     checkin: function() {
-      console.log("Checkin Vue Checkin");
-      console.log(window.customerUsername);
 
       axios
         .post("/api/checkins", {
@@ -63,7 +61,7 @@ export default {
           vendor: this.selected
         })
         .then(function(data) {
-          console.log("Checkin Vue Checkin");
+            fetchCheckins();
         });
     }
   }
