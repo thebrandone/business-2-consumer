@@ -105,7 +105,6 @@ export default {
               this.recentCheckin = this.checkins[i].vendor;
             }
           }
-          console.log(this.customerCheckins.length);
 
         }.bind(this)
       );
