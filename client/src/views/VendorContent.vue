@@ -18,6 +18,9 @@
             {{vendor.city}}
             </bold></h3>
         </b-jumbotron>
+        <div>
+          <chart/>
+        </div>
         <br><br>
       </div>
 
@@ -28,8 +31,13 @@
 
 <script>
 import axios from "axios";
+import chart from '@/components/chart.vue';
+
 export default {
-  name: "vendorcontent",
+  name: 'vendercontent',
+  components: {
+    chart
+  },
 
   data: function() {
     return {
@@ -66,6 +74,7 @@ export default {
           }.bind(this)
         )
     },
+
       fetchCheckins: function(){
         axios.get("/api/checkins").then(
           function(checkins) {
@@ -74,6 +83,7 @@ export default {
             
           }.bind(this)
         )
+
     }
   }
 };
