@@ -70,8 +70,6 @@ export default {
 
   methods: {
     fetchVendors: function() {
-      console.log(this.vendorUsername);
-
       axios.get("/api/vendors").then(
         function(vendors) {
           this.vendors = vendors.data;
@@ -98,20 +96,13 @@ export default {
           this.checkins = checkins.data;
           this.totalCheckins = 0;
           this.customerCheckins = [];
-
-          console.log(this.checkins.length);
-
           for (var i = 0; i < this.checkins.length; i++) {
             if (this.checkins[i].vendor === this.restaurant) {
               this.customerCheckins.push(this.checkins[i]);
               this.totalCheckins++;
               this.recentCheckin = this.checkins[i].username;
             }
-            console.log(this.customerCheckins);
-            //console.log(this.checkins);
-            //console.log(this.checkins[0].createdAt);
           }
-          console.log(this.customerCheckins.length);
         }.bind(this)
       );
     }
