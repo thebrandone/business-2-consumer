@@ -1,8 +1,10 @@
 <template>
   <div>
-      
+    <div v-for="checkin in checkins" v-bind:key="checkin.id">
+      <pre>{{checkin.id}} {{checkin.username}} {{checkin.vendor}}</pre>
+    </div>
 
-    <div v-for="vendor in vendors" v-bind:key="vendor.id">
+    <!-- <div v-for="vendor in vendors" v-bind:key="vendor.id">
 
       <div id="listView">
         <b-jumbotron>
@@ -22,7 +24,7 @@
         <br><br>
       </div>
 
-    </div>
+    </div> -->
 
   </div>
 </template>
@@ -40,13 +42,15 @@ export default {
   data: function() {
     return {
       vendors: [],
-      customers: []
+      customers: [],
+      checkins: []
     };
   },
 
   created: function() {
     this.fetchVendors();
     this.fetchCustomers();
+    this.fetchCheckins();
     console.log(window.vendorUsername, window.vendorPassword);
   },
 
@@ -70,8 +74,16 @@ export default {
           }.bind(this)
         )
     },
-    createGraph: function(){
-      
+
+      fetchCheckins: function(){
+        axios.get("/api/checkins").then(
+          function(checkins) {
+
+            this.checkins = checkins.data;
+            
+          }.bind(this)
+        )
+
     }
   }
 };

@@ -3,7 +3,7 @@
     <div id="userProfile">
       <b-jumbotron id="jumboProfile" class="row">
         <div class="col-sm">
-          <h1>Username Placeholder{{currentCustomer}}</h1>
+          <h1>{{customerName}}</h1>
           <h3>
             Total Check-Ins: {{totalCheckins}}
             <br>
@@ -17,22 +17,15 @@
       </b-jumbotron>
     </div>
 
+    <form @submit.prevent="checkin">
     <div id="userCheckin">
       <checkIn/>
     </div>
+    </form>
 
     <div id="userHistory">
       <h1>Most Recent Check-Ins</h1>
-      <div v-for="customer in customers" v-bind:key="customer.id">
-        <pre>
-            {{customer.id}}
-            {{customer.username}}
-            {{customer.password}}
-            {{customer.email}}
-            {{customer.firstName}}
-            {{customer.lastName}}
-        </pre>
-      </div>
+      {{customerCheckins}}
     </div>
   </div>
 </template>
@@ -50,13 +43,16 @@ export default {
   data: function() {
     return {
       customers: [],
-      currentCustomer,
-      checkins:[]
+      checkins:[],
+      customerCheckins:[],
+      customerName: window.customerUsername
+      
     };
   },
 
   created: function() {
     this.fetchCustomers();
+    this.fetchCheckins();
     console.log(window.customerUsername, window.customerPassword);
   },
 
@@ -68,13 +64,22 @@ export default {
         }.bind(this)
       );
     },
-
-    checkin: function(){
-      axios.post("api/checkins").then(
+    fetchCheckins: function(){
+      axios.get("/api/checkins").then(
         function(checkins){
-          this.checkins = checkins.data;
+          checkins=checkins.data;
+          // console.log(this.customerName);
+          // console.log(checkins.data);
+          console.log(checkins.length);
+
+          for(var i=0; i<checkins.length; i++){
+            if(checkins[i].username === this.customerName){
+            this.customerCheckins.push(checkins[i].username);
+            }
+          }
+          
         }.bind(this)
-      );
+      )
     }
   }
 };

@@ -17,9 +17,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 var customerRoutes = require("./controllers/Customer_controller.js");
-var vendorRoutes = require("./controllers/Vendor_controller")
+var vendorRoutes = require("./controllers/Vendor_controller");
+var checkinRoutes = require("./controllers/Checkins_controller");
 
-app.use(customerRoutes,vendorRoutes);
+
+app.use(customerRoutes,vendorRoutes,checkinRoutes);
 
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
