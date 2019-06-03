@@ -9,10 +9,10 @@ import router from './router'
 import VueGeolocation from 'vue-browser-geolocation';
 import axios from 'axios';
 
-
 Vue.use(axios);
 Vue.use(VueGeolocation);
 Vue.use(BootstrapVue);
+
 Vue.config.productionTip = false;
 
 new Vue({
