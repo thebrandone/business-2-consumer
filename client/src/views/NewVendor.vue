@@ -118,7 +118,6 @@ export default {
           city: this.city
         })
         .then(function(data) {
-          console.log("got it");
         });
       this.navigation();
     },
