@@ -1,13 +1,13 @@
 var express = require("express");
 
 var router = express.Router();
-// edit burger model to match sequelize
 var db = require("../models/");
 
 // get route, edited to match sequelize
 router.get("/api/checkins", function(req, res) {
   // replace old function with sequelize function
-  db.Checkins.findAll()
+  db.Checkins.findAll(
+  )
     .then(function(checkinData) {
       res.json(checkinData);
     });

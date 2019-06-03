@@ -15,11 +15,7 @@ router.get("/api/vendors", function(req, res) {
 });
 
 router.get("/api/vendors", function(req, res) {
-  db.Vendor.findAll({
-    where: {
-      restaurant: window.vendorUsername
-    }
-  }).then(function(vendorData) {
+  db.Vendor.findAll().then(function(vendorData) {
     res.json(vendorData);
   });
 });
@@ -40,22 +36,5 @@ router.post("/api/vendors", function(req, res) {
       res.json({ id: result.insertId });
     });
 });
-
-// // put route to devour a burger
-// router.put("/api/burgers/:id", function(req, res) {
-//   // update one of the burgers
-//   db.Burger.update({
-//     devoured: true
-//   },
-//   {
-//     where: {
-//       id: req.params.id
-//     }
-//   }
-//   ).then(function(result) {
-//     // Send back response and let page reload from .then in Ajax
-//     res.sendStatus(200);
-//   });
-// });
 
 module.exports = router;

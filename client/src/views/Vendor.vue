@@ -88,7 +88,7 @@ export default {
     },
     saveInfo: function() {
       console.log(this.username, this.password);
-      window.vendorUsername = this.username;
+      window.vendorName = this.restaurant;
       window.vendorPassword = this.password;
     }
   }
