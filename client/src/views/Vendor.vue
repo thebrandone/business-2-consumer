@@ -88,7 +88,6 @@ export default {
       router.push(('/VendorContent'))
     },
     saveInfo: function() {
-      console.log(this.username, this.password);
       window.vendorName = this.username;
       window.vendorPassword = this.password;
     }

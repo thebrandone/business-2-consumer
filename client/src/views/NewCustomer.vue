@@ -123,7 +123,6 @@ export default {
           lastName: this.lastName
         })
         .then(function(data) {
-          console.log("got t");
         })
         this.navigation();
     },
