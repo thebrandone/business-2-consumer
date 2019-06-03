@@ -106,7 +106,6 @@ export default {
               this.customerCheckins[i].createdAt=this.customerCheckins[i].createdAt.slice(0,10);
             }
           }
-          console.log(this.customerCheckins.length);
 
         }.bind(this)
       );

@@ -57,7 +57,8 @@ export default {
     return {
       username: '',
       password: '',
-      loading: false
+      loading: false,
+      showBadAlert: false
     };
   },
   methods: {
