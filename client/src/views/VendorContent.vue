@@ -40,6 +40,7 @@
 
 <script>
 import chart from "@/components/chart.vue";
+import vendor from "@/views/Vendor.vue";
 import axios from "axios";
 
 export default {
