@@ -7,34 +7,33 @@
       </template>
     </b-form-select>
 
-    <div class="mt-3">
+    <form @submit.prevent="checkin">
+      <div class="mt-3">
         <button type="submit" id="submitCheckIn">
-      Check-In to
-      <strong>{{ selected }}</strong>
-      </button>
-    </div>
+          Check-In to
+          <strong>{{ selected }}</strong>
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import customercontent from "@/views/CustomerContent.vue";
 
 export default {
   name: "checkIn",
   data() {
     return {
       selected: null,
-      options: [
-        
-      ],
+      options: [],
       vendors: []
     };
   },
 
   created: function() {
     this.fetchVendors();
-  
-
   },
 
   methods: {
@@ -42,42 +41,37 @@ export default {
       axios.get("/api/vendors").then(
         function(vendors) {
           this.vendors = vendors.data;
-          console.log(vendors);
+
           this.populateVendors();
         }.bind(this)
       );
     },
 
-    populateVendors: function(){
-
-      for(var i=0; i<this.vendors.length; i++){
-        
+    populateVendors: function() {
+      for (var i = 0; i < this.vendors.length; i++) {
         this.options.push(this.vendors[i].restaurant);
-
-        console.log(this.vendors[i].restaurant);
       }
-
     },
 
     checkin: function() {
-      axios.post("/api/checkins", {
-          customer: this.customer,
-          vendor: this.vendor,
+      console.log("Checkin Vue Checkin");
+      console.log(window.customerUsername);
+
+      axios
+        .post("/api/checkins", {
+          username: window.customerUsername,
+          vendor: this.selected
         })
         .then(function(data) {
-          console.log("got it");
-        })
-    },
+          console.log("Checkin Vue Checkin");
+        });
+    }
   }
 };
-
-
 </script>
 
 <style>
-
 #dropDown {
-
   background-color: black;
   font-size: 25px;
   text-align: center;
@@ -85,7 +79,7 @@ export default {
   padding-bottom: 1.25em;
 }
 
-#submitCheckIn{
-    width: 70%;
+#submitCheckIn {
+  width: 70%;
 }
 </style>
