@@ -70,7 +70,7 @@ export default {
       customerCheckins: [],
       customerName: window.customerUsername,
       totalCheckins: 0,
-      recentCheckin:0,
+      recentCheckin:"",
       selected: null,
       options: [],
       vendors: [],

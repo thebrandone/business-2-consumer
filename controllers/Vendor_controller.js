@@ -15,11 +15,7 @@ router.get("/api/vendors", function(req, res) {
 });
 
 router.get("/api/vendors", function(req, res) {
-  db.Vendor.findAll({
-    where: {
-      restaurant: window.vendorUsername
-    }
-  }).then(function(vendorData) {
+  db.Vendor.findAll().then(function(vendorData) {
     res.json(vendorData);
   });
 });
