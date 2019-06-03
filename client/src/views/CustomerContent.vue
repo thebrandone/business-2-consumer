@@ -41,7 +41,7 @@
 
     <div id="historyTitle">
         <h1 style="color:red">All Check-Ins</h1>
-      <div v-for="checkins in customerCheckins" v-bind:key="customerCheckins.id">
+      <div v-for="checkins in customerCheckins" v-bind:key="checkins.id">
         <div id="listView">
           <b-jumbotron id="userHistory">
             <h2>Checked-In to {{checkins.vendor}} on {{checkins.createdAt}}</h2>
@@ -70,8 +70,7 @@ export default {
       customerCheckins: [],
       customerName: window.customerUsername,
       totalCheckins: 0,
-      recentCheckin: null,
-      componentKey: 0,
+      recentCheckin:0,
       selected: null,
       options: [],
       vendors: [],
